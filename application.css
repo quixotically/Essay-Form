@@ -41,7 +41,7 @@ ul {
 
 header {
   margin: 0 auto;
-  width: 570px;
+  display: inline-block;
 }
 
 h1 {
