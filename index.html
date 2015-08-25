@@ -53,8 +53,9 @@
   </body>
 </html>
 <script>
-  CKEDITOR.replace('essay-area');
   CKEDITOR.config.height = 500;
+  CKEDITOR.config.removePlugins = 'autosave,save';
+  CKEDITOR.replace('essay-area');
 
   $("form").on("submit", function (event) {
     // get all data from the form

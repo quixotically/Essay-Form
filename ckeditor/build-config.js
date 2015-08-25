@@ -52,7 +52,6 @@ var CKBUILDER_CONFIG = {
 	plugins : {
 		'a11yhelp' : 1,
 		'about' : 1,
-		'autosave' : 1,
 		'basicstyles' : 1,
 		'bidi' : 1,
 		'blockquote' : 1,
@@ -84,7 +83,6 @@ var CKBUILDER_CONFIG = {
 		'print' : 1,
 		'removeformat' : 1,
 		'resize' : 1,
-		'save' : 1,
 		'scayt' : 1,
 		'selectall' : 1,
 		'showblocks' : 1,
