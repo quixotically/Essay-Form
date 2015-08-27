@@ -124,8 +124,6 @@
     var year = $("#year").val();
     var email = $("#email").val();
     var semester = $('input[name=semester]:checked').val();
-    console.log(this);
-    var form = this;
     // successful submission condition
     if (numParagraphs === 4 && wordCount === 300 && name && year && email &&
         typeof semester !== "undefined") {
@@ -134,7 +132,7 @@
       $.ajax({
         url: "//formspree.io/fmw212@nyu.edu",
         method: 'POST',
-        data: $(form).serialize(),
+        data: $(this).serialize(),
         dataType: 'json',
         beforeSend: function() {
           // alert("loading");
