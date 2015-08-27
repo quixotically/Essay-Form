@@ -13,8 +13,8 @@
       <h1 class="tag">Essay</h1>
       <h1 class="ef">form</h1>
     </header>
-    <ul id="errors" class="hidden"></ul>
-    <h3 id="save" class="hidden">Autosave Complete!</h3>
+    <ul id="errors" class="popup hidden"></ul>
+    <h3 id="save" class="popup hidden">Autosave Complete!</h3>
     <form>
       <ul class="id-fields">
         <li class="id-field-section clearfix">
@@ -53,8 +53,6 @@
   </body>
 </html>
 <script>
-  CKEDITOR.config.height = 500;
-  CKEDITOR.config.removePlugins = 'autosave,save';
   CKEDITOR.replace('essay-area');
   window.editor = CKEDITOR.instances["essay-area"];
 

@@ -23,7 +23,7 @@ body, h1, h3, label, ul, li, fieldset {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Nunito", sans-serif;
   background: #005EFF;
   text-align: center;
   padding: 20px;
@@ -149,11 +149,11 @@ textarea {
 }
 
 .submit:hover {
-  background: lightgreen;
+  background: #4EC74E;
   cursor: pointer;
 }
 
-@media (max-width: 630px) {
+@media screen and (max-width: 630px), screen and (max-device-width: 630px) {
   header {
     width: 438px;
   }
@@ -164,7 +164,7 @@ textarea {
   }
 }
 
-@media (max-width: 550px) {
+@media screen and (max-width: 550px), screen and (max-device-width: 550px) {
   .id-field, .id-field:nth-child(even) {
     float: none;
     width: 210px;
@@ -172,7 +172,7 @@ textarea {
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px), screen and (max-device-width: 480px) {
   header {
     width: 360px;
   }
@@ -182,28 +182,27 @@ textarea {
   }
 }
 
-/*save*/
-
-#save {
+.popup {
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  background: green;
   color: #fff;
   padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+/*save*/
+
+#save {
+  background: green;
 }
 
 /*errors*/
 
 #errors {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   background: red;
-  color: #fff;
-  padding: 10px;
 }
 
 #errors li {
@@ -217,13 +216,18 @@ textarea {
 /*success page*/
 
 #success {
-  font-family: "Nunito", sans-serif;
+  max-width: 770px;
+  text-align: left;
+  color: #fff;
 }
 
 #success h1 {
+  font-family: "Nunito", sans-serif;
+  font-size: 42px;
   font-weight: 700;
 }
 
 #success .message {
+  font-size: 22px;
   font-weight: 400;
 }
