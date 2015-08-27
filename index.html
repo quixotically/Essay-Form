@@ -124,15 +124,17 @@
     var year = $("#year").val();
     var email = $("#email").val();
     var semester = $('input[name=semester]:checked').val();
+    console.log(this);
+    var form = this;
     // successful submission condition
     if (numParagraphs === 4 && wordCount === 300 && name && year && email &&
         typeof semester !== "undefined") {
-      $("#subject").val(name + " [TAG][" + semester + " " + year + "]");
+      $("#subject").val(name + " [TAG] [" + semester + " " + year + "]");
       $("#cc").val(email);
       $.ajax({
         url: "//formspree.io/fmw212@nyu.edu",
         method: 'POST',
-        data: $(this).serialize(),
+        data: $(form).serialize(),
         dataType: 'json',
         beforeSend: function() {
           // alert("loading");
