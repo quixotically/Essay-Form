@@ -80,7 +80,8 @@ $("form").on("submit", function (event) {
       data: $(this).serialize(),
       dataType: 'json',
       beforeSend: function() {
-        $("#essay-area").val(essayHTML);
+        $("#essay-area").val(essayHTML).removeAttr("style");
+        editor.setData("");
       },
       success: function(data) {
         if (supportsLocalStorage()) {
