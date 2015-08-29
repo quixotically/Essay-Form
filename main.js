@@ -61,7 +61,6 @@ $("form").on("submit", function (event) {
   event.preventDefault();
   // get all data from the form
   var essayHTML = editor.getData();
-  console.log(essayHTML);
   // need to wrap html in a div to get the first level elements (in this case p's)
   var numParagraphs = $('<div>' + essayHTML + '</div>').find("p").length;
   var wordCount = editor.plugins.wordcount.wordCount;
@@ -81,8 +80,9 @@ $("form").on("submit", function (event) {
       data: $(this).serialize(),
       dataType: 'json',
       beforeSend: function() {
-        console.log(essayHTML);
-        console.log("this: " + this);
+        if (supportsLocalStorage()) {
+          populateStorage();
+        };
       },
       success: function(data) {
         if (supportsLocalStorage()) {
