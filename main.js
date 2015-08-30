@@ -72,6 +72,8 @@ $("form").on("submit", function (event) {
   // successful submission condition
   if (numParagraphs === 4 && wordCount === 300 && name && year && email &&
       typeof semester !== "undefined") {
+    // needed so that the form successfully gets the editor data
+    editor.updateElement();
     $("#subject").val(name + " [TAG] [" + semester + " " + year + "]");
     $("#cc").val(email);
     $.ajax({
@@ -79,10 +81,6 @@ $("form").on("submit", function (event) {
       method: 'POST',
       data: $(this).serialize(),
       dataType: 'json',
-      beforeSend: function() {
-        $("#essay-area").val(essayHTML).removeAttr("style");
-        editor.setData("");
-      },
       success: function(data) {
         if (supportsLocalStorage()) {
           if (storageTimeoutID) { clearTimeout(storageTimeoutID); }
