@@ -72,7 +72,7 @@ $("form").on("submit", function (event) {
   // successful submission condition
   if (numParagraphs === 4 && wordCount === 300 && name && year && email &&
       typeof semester !== "undefined") {
-    // needed so that the form successfully gets the editor data
+    // needed so that the form successfully gets the latest editor data
     editor.updateElement();
     $("#subject").val(name + " [TAG] [" + semester + " " + year + "]");
     $("#cc").val(email);
@@ -86,8 +86,7 @@ $("form").on("submit", function (event) {
           if (storageTimeoutID) { clearTimeout(storageTimeoutID); }
           localStorage.removeItem("essay");
         };
-        alert("success");
-        //window.location.href = window.location.href + "success.html";
+        window.location.href = window.location.href + "success.html";
       }
     });
   } else {

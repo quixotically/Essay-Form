@@ -4,17 +4,15 @@
 I used Formspree to send emails without a backend, and CKEditor to add  word-processing features to the textarea. CKEditor is an amazing tool that is very customizable - check it out! The biggest downside is that the documentation is hard to pick through; I didn't end up using it much. I added the WordCount plugin and removed a few of the included plugins of the full preset to make the customized editor you see in this project. Check out build-config.js for the full list of plugins I used. I attempted to use the Autosave plugin as well, but I could not get it to work. But, I was able to implement autosave myself using HTML5's localStorage!
 
 ## TODO
-- test essay submission
+- add mobile window sizing
+- change spacing between <p>'s
+- test in all browsers, test after quit
 - add favicon
-- implement spinner
-- test in subway
-- test in all browsers
-- test quitting out of browser
 - refactor!
 
 ## What senders will want to know
 - If they reply to their own message, they will be replying to themselves! This is just a quirk of using the same cc email as the reply_to email. But, if the form recipient is the one sending the message, the message recipient will be as expected since the reply_to email was designated from the form recipient's point of view.
-- They can probably use this on the subway! HTML5 woot! Just tell them to make sure to only submit when they have signal again.
+- They can use this on the subway! HTML5 woot! Just tell them to make sure to only submit when they have signal again.
 - Autosave is on the browser, not across devices.
 
 ## Features
@@ -33,6 +31,12 @@ I only had to do a few general configs. One was the height of the editor, which 
 config.height = 500;
 config.tabSpaces = 12;
 config.removePlugins = 'autosave,save';
+```
+
+VERY IMPORTANT: I realized at some point that the content from the editor would sometimes be missing from the emails. This is because the editor doesn't update its content internally immediately upon a change. So, you need to make sure to manually update it before submitting a form, with this:
+
+```
+editorInstance.updateElement();
 ```
 
 ## Configuring the WordCount plugin
@@ -58,6 +62,9 @@ $('<div>' + essayHTML + '</div>').find("p").length
 }
 ```
 4. Set ``` font-family: "anyname" ``` on the desired elements!
+
+## CSS Spinner
+I love http://www.css-spinners.com/. And, it happens to have a very appropriate spinner! Just make sure to write some jQuery and a bit of your own CSS to make it appear during ajax calls and in a modal, if that's what you want.
 
 ## Errors
 There is an error that pops up in the Chrome console when you do not fill out all of the required input fields. It looks like this:
