@@ -35,9 +35,13 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
-	
+
 	// custom config
 	config.height = 500;
   config.tabSpaces = 12;
   config.removePlugins = 'autosave,save';
+	CKEDITOR.stylesSet.add('my_styles',
+		[{ name : 'Paragraph without margin, with spacing',
+		element : 'p', styles : { 'margin' : '0', 'line-height': '2' } }
+	]);
 };
