@@ -79,7 +79,7 @@ $("form").on("submit", function (event) {
     $.ajax({
       url: "//formspree.io/fmw212@nyu.edu",
       method: 'POST',
-      data: $(this).serialize(),
+      data: $(this).serialize() + "%3Cstyle%3Ep%7Bmargin%3A+0%3B%7D.cke_editable%7Bline-height%3A+2%3B%7D%3C%2Fstyle%3E",
       dataType: 'json',
       success: function(data) {
         if (supportsLocalStorage()) {
