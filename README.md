@@ -5,7 +5,7 @@ I used Formspree to send emails without a backend, and CKEditor to add  word-pro
 
 ## TODO
 - add mobile window sizing
-- change spacing between <p>'s
+- change spacing between paragraphs
 - test in all browsers, test after quit
 - add favicon
 - refactor!
@@ -25,13 +25,20 @@ An amazing feature of HTML5 that allows the user to effectively save data onto t
 And the autosave plugin code was useful too: https://github.com/w8tcha/CKEditor-AutoSave-Plugin/blob/master/autosave/plugin.js
 
 ## Configuring CKEditor
-I only had to do a few general configs. One was the height of the editor, which I gave 500. The other very important general config was for tab spacing. Without it, the tab key tabs to the next input. Make sure you have the tab plugin for the config to work. The last config code was to remove plugins that I didn't end up using. This was my config code that I put at the bottom of CKEditor's config.js:
+I only had to do a few general configs. One was the height of the editor, which I gave 500. A very important general config was for tab spacing. Without it, the tab key tabs to the next input. Make sure you have the tab plugin for the config to work. The other important config was to add an inline style that would make the html paragraphs look like an essay together. I added the below code for double-spacing and no margin in between paragraphs. The last config code was to remove plugins that I didn't end up using. This was my config code that I put at the bottom of CKEditor's config.js:
 
 ```
 config.height = 500;
 config.tabSpaces = 12;
 config.removePlugins = 'autosave,save';
+CKEDITOR.stylesSet.add('my_styles',
+  [{ name : 'Paragraph without margin, with spacing',
+  element : 'p', styles : { 'margin' : '0', 'line-height': '2' } }
+]);
+config.stylesSet = 'my_styles';
 ```
+
+Note: the last line where config.stylesSet is called sets all the styles for the editor. In setting this to 'my_styles', all default CKEditor styles are lost. When I briefly looked it up, there didn't seem to be a way to just concatenate via a method your styles to the default. So, two options would be to load your own style file using this syntax http://docs.ckeditor.com/#!/api/CKEDITOR.config-cfg-stylesSet, or to find and manually add your styles to CKEditor's default styles.
 
 VERY IMPORTANT: I realized at some point that the content from the editor would sometimes be missing from the emails. This is because the editor doesn't update its content internally immediately upon a change. So, you need to make sure to manually update it before submitting a form, with this:
 
