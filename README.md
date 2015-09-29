@@ -38,7 +38,7 @@ CKEDITOR.stylesSet.add('my_styles',
 config.stylesSet = 'my_styles';
 ```
 
-Note: the last line where config.stylesSet is called sets all the styles for the editor. In setting this to 'my_styles', all default CKEditor styles are lost. When I briefly looked it up, there didn't seem to be a way to just concatenate via a method your styles to the default. So, two options would be to load your own style file using this syntax http://docs.ckeditor.com/#!/api/CKEDITOR.config-cfg-stylesSet, or to find and manually add your styles to CKEditor's default styles.
+Note: the last line where config.stylesSet is called sets all the styles for the editor. In setting this to 'my_styles', all default CKEditor styles are lost. When I briefly looked it up, there didn't seem to be a way to just concatenate via a method your styles to the default. So, two options would be to load your own style file using this syntax http://docs.ckeditor.com/#!/api/CKEDITOR.config-cfg-stylesSet, or to find and manually add your styles to CKEditor's default styles, which are probably at styles.js.
 
 VERY IMPORTANT: I realized at some point that the content from the editor would sometimes be missing from the emails. This is because the editor doesn't update its content internally immediately upon a change. So, you need to make sure to manually update it before submitting a form, with this:
 

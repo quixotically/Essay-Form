@@ -80,7 +80,7 @@ $("form").on("submit", function (event) {
     $.ajax({
       url: "//formspree.io/fmw212@nyu.edu",
       method: 'POST',
-      data: $(this).serialize(),
+      data: "name=" + encodeURI(name) + "&year=" + encodeURI(year) + "&_replyto=" + encodeURI(email) + "&essay=" + encodeURI("<style>p {margin: 0; line-height: 2; color: red;}</style>"+ essayHTML) + "&_subject=" + encodeURI($("#subject").val()) + "&_cc=" + encodeURI(email) + "&_gotcha=",
       dataType: 'json',
       success: function(data) {
         if (supportsLocalStorage()) {
